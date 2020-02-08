@@ -63,11 +63,13 @@ class ElkBridge(object):
         """ Send Note ON / OFF messages to SUSHI
             and update LEDs
         """
-        # C3 + C scale from C4 to C5
-        BUTTON_MIDI_NOTES = [ 48, 60, 62, 64, 65, 67, 69, 71, 72 ]
+        # C scale from C3 to C4
+        BUTTON_MIDI_NOTES = [48, 48, 50, 52, 53, 55, 57, 59, 60]
 
-        self._sushi.send_note_on(0, 0, BUTTON_MIDI_NOTES[idx], val)
-        self._ui.set_led(idx, val)
+        # play power chord
+        for offset in [0, 7, 12]:
+            self._sushi.send_note_on(0, 0, BUTTON_MIDI_NOTES[idx] + offset, val)
+            self._ui.set_led(idx, val)
 
 
     def _handle_encoder_button(self, val):
