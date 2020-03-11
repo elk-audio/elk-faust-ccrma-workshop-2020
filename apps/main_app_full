@@ -117,7 +117,6 @@ class ElkBridge(object):
 
 
 
-
 if __name__ == '__main__':
     bridge = ElkBridge()
     bridge.run()

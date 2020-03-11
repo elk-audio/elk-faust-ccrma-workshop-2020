@@ -13,7 +13,7 @@ with {
     // MIDI input
     midi_freq = nentry("freq[unit:Hz][hidden]", 440, 20, 20000, 1);
     midi_gate = button("gate[hidden]");
-	midi_gain = nentry("gain[hidden]", 0.25, 0, 0.25, 0.01);
+    midi_gain = nentry("gain[hidden]", 0.25, 0, 0.25, 0.01);
 
     // Filter
     filt_freq = hslider("Cutoff[unit: Hz][scale:log][hidden]", 2000, 40, 6000, 0.001) : si.smoo;
